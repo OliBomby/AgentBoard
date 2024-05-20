@@ -211,6 +211,15 @@ env:
     check_inventory: "inventory"
     init_prompt_path: ${PROJECT_PATH}/agentboard/prompts/VanillaAgent/jericho_vanilla_prompt.json
 
+  jericho_fix:
+    name: jericho
+    game_name: ["905", "acorncourt", "afflicted","balances","dragon","jewel","library","omniquest","reverb","snacktime","zenon","zork1","zork2", "zork3","detective","night","pentari","weapon","huntdark","loose"]
+    game_dir: ${PROJECT_PATH}/data/jericho/z-machine-games-master/jericho-game-suite
+    label_path: ${PROJECT_PATH}/data/jericho/test.jsonl
+    check_actions: "check valid actions"
+    check_inventory: "inventory"
+    init_prompt_path: ${PROJECT_PATH}/agentboard/prompts/VanillaAgent/jericho_vanilla_prompt_2.json
+
 
   babyai:
     name: babyai
