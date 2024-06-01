@@ -195,7 +195,14 @@ class ReactAgent(
                                             check_inventory=self.check_inventory,
                                             system_message=system_message)
 
-            success, response = self.llm_model.generate(system_message, input_prompt)
+            if self.think_count > self.max_think_iters:
+                success = True
+                response = self.check_actions
+                self.think_count = 0
+                self.force_action = True
+                break
+            else:
+                success, response = self.llm_model.generate(system_message, input_prompt)
             # print(input_prompt)
 
             if response.startswith("Action"):
@@ -218,7 +225,7 @@ class ReactAgent(
             
             else:
                 flag = False
-                self.think_count = 0
+                self.think_count += 1
                 self.force_action = True
 
         return success, response

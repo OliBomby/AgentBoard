@@ -8,6 +8,7 @@ class HUMAN:
         self.max_tokens = 10000
 
     def generate(self, system_message, prompt):
+        print(system_message, prompt)
         return True, input("")
 
     def num_tokens_from_messages(self, messages, model="gpt-3.5-turbo-0613"):
